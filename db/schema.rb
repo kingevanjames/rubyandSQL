@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_06_005255) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_06_012103) do
+  create_table "activities", force: :cascade do |t|
+    t.string "occurred_at"
+    t.string "notes"
+    t.integer "salesperson_id"
+    t.integer "contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -27,6 +36,14 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_06_005255) do
     t.string "phone_number"
     t.integer "company_id"
     t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "salespeople", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
